@@ -1,5 +1,19 @@
 version: '2'
 services:
+  skeleton:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    image: skeleton:latest
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/skeleton
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_NAME: skeleton
   db:
     image: postgres:11.5
     volumes:

@@ -13,7 +13,7 @@ func main() {
 	router := mux.NewRouter()
 	router.HandleFunc("/users", appHandler.UserHandler.Get)
 	srv := &http.Server{
-		Addr:         "127.0.0.1:8000",
+		Addr:         "0.0.0.0:8000",
 		WriteTimeout: time.Second * 15,
 		ReadTimeout:  time.Second * 15,
 		IdleTimeout:  time.Second * 60,
