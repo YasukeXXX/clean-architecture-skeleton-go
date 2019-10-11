@@ -17,8 +17,8 @@ func InitializeHandler() handlers.AppHandler {
 	wire.Build(
 		registries.NewPostgres,
 		wire.Struct(new(postgres.UserRepository), "*"),
-		wire.Bind(new(repositories.UserRepository), new(postgres.UserRepository)),
-		wire.Bind(new(usecases.UserUsecase), new(interactors.UserInteractor)),
+		wire.Bind(new(repositories.UserRepository), new(*postgres.UserRepository)),
+		wire.Bind(new(usecases.UserUsecase), new(*interactors.UserInteractor)),
 		wire.Struct(new(interactors.UserInteractor), "*"),
 		wire.Struct(new(controllers.UserController), "*"),
 		wire.Struct(new(handlers.UserHandler), "*"),

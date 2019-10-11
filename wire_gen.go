@@ -17,10 +17,10 @@ import (
 
 func InitializeHandler() handlers.AppHandler {
 	registriesPostgres := registries.NewPostgres()
-	userRepository := postgres.UserRepository{
+	userRepository := &postgres.UserRepository{
 		DB: registriesPostgres,
 	}
-	userInteractor := interactors.UserInteractor{
+	userInteractor := &interactors.UserInteractor{
 		UserRepository: userRepository,
 	}
 	userController := controllers.UserController{
