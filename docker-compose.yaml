@@ -1,0 +1,12 @@
+version: '2'
+services:
+  db:
+    image: postgres:11.5
+    volumes:
+      - skeleton-db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+volumes:
+  skeleton-db:
+    external:
+      name: skeleton-db
