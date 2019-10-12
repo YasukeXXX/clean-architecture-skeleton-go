@@ -3,7 +3,7 @@ package postgres
 import (
 	"github.com/YasukeXXX/clean-architecture-skeleton-go/registries"
 	"github.com/YasukeXXX/clean-architecture-skeleton-go/repositories"
-	"github.com/YasukeXXX/clean-architecture-skeleton-go/usecases"
+	"github.com/YasukeXXX/clean-architecture-skeleton-go/models"
 )
 
 type UserRepository struct {
@@ -20,7 +20,7 @@ func (r UserRepository) FindAll() (users []repositories.User, err error) {
 	return
 }
 
-func (r UserRepository) Create(user usecases.User) (record repositories.User, err error) {
+func (r UserRepository) Create(user models.User) (record repositories.User, err error) {
 	record = repositories.User{Name: user.Name, Email: user.Email, Password: user.Password}
 	err = r.DB.Create(&record).Error
 	return

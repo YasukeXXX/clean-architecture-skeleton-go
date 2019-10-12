@@ -1,7 +1,7 @@
 package repositories
 
 import (
-	"github.com/YasukeXXX/clean-architecture-skeleton-go/usecases"
+	"github.com/YasukeXXX/clean-architecture-skeleton-go/models"
 	"golang.org/x/crypto/bcrypt"
 	"time"
 )
@@ -33,5 +33,5 @@ func (u *User) BeforeUpdate() (err error) {
 type UserRepository interface {
 	Find(id uint) (User, error)
 	FindAll() ([]User, error)
-	Create(usecases.User) (User, error)
+	Create(models.User) (User, error)
 }

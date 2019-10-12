@@ -1,21 +1,19 @@
 package usecases
 
-type User struct {
-	Name     string
-	Email    string
-	Password string
-}
+import (
+	"github.com/YasukeXXX/clean-architecture-skeleton-go/models"
+)
 
 type FindUserOutput struct {
-	Users []User
+	Users []models.User
 }
 
 type CreateUserOutput struct {
-	User User
+	User models.User
 }
 
 type CreateUserInput struct {
-	User User
+	User models.User
 }
 
 type UserUsecase interface {

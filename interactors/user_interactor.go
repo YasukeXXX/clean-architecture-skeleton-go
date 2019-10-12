@@ -3,6 +3,7 @@ package interactors
 import (
 	"github.com/YasukeXXX/clean-architecture-skeleton-go/repositories"
 	"github.com/YasukeXXX/clean-architecture-skeleton-go/usecases"
+	"github.com/YasukeXXX/clean-architecture-skeleton-go/models"
 )
 
 type UserInteractor struct {
@@ -15,7 +16,7 @@ func (i UserInteractor) Find() (output usecases.FindUserOutput, err error) {
 		return
 	}
 	for _, user := range users {
-		userOutput := usecases.User{Name: user.Name, Email: user.Email}
+		userOutput := models.User{Name: user.Name, Email: user.Email}
 		output.Users = append(output.Users, userOutput)
 	}
 	return
@@ -26,7 +27,7 @@ func (i UserInteractor) Create(input usecases.CreateUserInput) (output usecases.
 	if err != nil {
 		return
 	}
-	user := usecases.User{Name: dto.Name, Email: dto.Email}
+	user := models.User{Name: dto.Name, Email: dto.Email}
 	output = usecases.CreateUserOutput{user}
 	return
 }
